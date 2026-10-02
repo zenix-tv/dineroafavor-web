@@ -1,15 +1,18 @@
-// Paste your real Formspree form endpoint after creating an account.
-// Example: https://formspree.io/f/xxxxxxxx  (do not put secret keys here)
-const FORMSPREE_ENDPOINT = '';
+// Formspree endpoint created for Carolina.
+// Keep live submission disabled until the privacy policy is completed and approved.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzezlnvd';
+const FORM_SUBMISSIONS_ENABLED = false;
 document.querySelector('#year').textContent = new Date().getFullYear();
 const form = document.querySelector('#lead-form');
 const statusBox = document.querySelector('#form-status');
-if (FORMSPREE_ENDPOINT) document.querySelector('#demo-note').remove();
+const demoNote = document.querySelector('#demo-note');
+if (FORM_SUBMISSIONS_ENABLED && FORMSPREE_ENDPOINT) demoNote?.remove();
+else if (demoNote) demoNote.textContent = 'Próximamente: estamos terminando la habilitación segura del formulario. Por ahora, contáctanos por WhatsApp.';
 form.addEventListener('submit', async event => {
   event.preventDefault();
   if (!form.reportValidity()) return;
-  if (!FORMSPREE_ENDPOINT) {
-    statusBox.textContent = 'Formulario de demostración: la página está lista, pero todavía debemos conectar la recepción de solicitudes.';
+  if (!FORM_SUBMISSIONS_ENABLED || !FORMSPREE_ENDPOINT) {
+    statusBox.textContent = 'Estamos terminando de habilitar el formulario. Por ahora, escríbenos por WhatsApp.';
     return;
   }
   const button = form.querySelector('button[type="submit"]');

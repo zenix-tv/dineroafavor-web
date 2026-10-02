@@ -1,26 +1,15 @@
-# Dinero a Favor — Web V5
+# Dinero a Favor — V7 (Formspree preparado)
 
-Landing en HTML/CSS/JavaScript, diseñada con escena original de la portada aprobada (mujer y living, con frase manuscrita), formulario compacto a la derecha y tres pasos visibles al desplazar. Responsive: en móviles muestra el mensaje, la fotografía completa adaptada al ancho, y luego el formulario.
+Esta versión conserva la portada V6 y los estilos originales. Formspree está configurado en `script.js` con el identificador proporcionado por el propietario del formulario: `https://formspree.io/f/xzezlnvd`.
 
-## Abrir
+## IMPORTANTE — El formulario no recoge datos todavía
 
-Abre `index.html` con un navegador. Todos los recursos se incluyen en la carpeta `assets`.
+`FORM_SUBMISSIONS_ENABLED = false` en `script.js`. Se mantiene desactivado porque `privacidad.html` es un borrador y requiere aprobación antes de recibir información personal. No se debe activar en producción hasta terminar esa tarea.
 
-## Formulario (IMPORTANTE)
+Antes de habilitar el formulario: confirmar titular legal/responsable del tratamiento, datos de contacto, finalidad, comunicación de datos a Mueve Seguro/Insurex, proveedor Formspree y transferencias, conservación y ejercicio de derechos; validar la política conforme a la legislación chilena aplicable. Sustituir `privacidad.html` por la versión aprobada. Entonces cambiar `FORM_SUBMISSIONS_ENABLED = true` y verificar el envío con datos de prueba no reales (sin RUT, documentos ni cuentas bancarias). Confirmar recepción efectiva con Carolina y el dominio HTTPS.
 
-**Versión de demostración; no recibe ni almacena solicitudes.** Para activarlo, configura un proveedor seguro de formularios y sustituye `FORMSPREE_ENDPOINT` en `script.js` por el endpoint facilitado. Antes de hacer eso, sustituye el borrador `privacidad.html` por una política revisada con la identidad del responsable del tratamiento, proveedores y plazos, y revisa que el consentimiento esté adecuado al flujo real. No publiques datos de clientes en GitHub.
+## GitHub Pages
 
-## Publicación
+Subir únicamente los archivos de la raíz de este ZIP (no el ZIP como archivo ni una carpeta envolvente) a `zenix-tv/dineroafavor-web`, reemplazando `script.js`, `index.html` y `README.md` donde corresponda. No alterar `assets/` ni `styles.css` salvo necesidad.
 
-Sube el contenido de esta carpeta (incluido `index.html`, `styles.css`, `script.js`, `privacidad.html` y `assets`) a la raíz de un repositorio en GitHub. Habilita Pages desde la rama `main`, carpeta `/ (root)`. Prueba el sitio temporal antes de vincular `www.dineroafavor.cl`.
-
-## Notas
-
-- WhatsApp configurado: +56 9 4804 0106.
-- Oferta: portabilidad de seguros de desgravamen para créditos de consumo y automotrices, sujeta a evaluación.
-- La fotografía es ilustrativa; no representa un testimonio real.
-- Mueve Seguro aparece como respaldo autorizado por el usuario.
-
-## Imagen de portada
-
-`assets/hero-escena-aprobada.jpg` es un recorte de la composición aprobada. Se muestra completa (sin `object-fit: cover`) en ordenador y móvil. La fotografía es ilustrativa, no un testimonio de una clienta real.
+El botón directo a WhatsApp funciona: `https://wa.me/56948040106`.
