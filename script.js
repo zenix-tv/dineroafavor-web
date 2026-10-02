@@ -6,6 +6,8 @@ document.querySelector('#year').textContent = new Date().getFullYear();
 const form = document.querySelector('#lead-form');
 const statusBox = document.querySelector('#form-status');
 const demoNote = document.querySelector('#demo-note');
+const formView = document.querySelector('#form-view');
+const successView = document.querySelector('#success-view');
 
 // Prefijo fijo +56 9; la persona solo escribe los ocho dígitos restantes.
 const phoneInput = document.querySelector('#telefono-local');
@@ -67,7 +69,12 @@ form.addEventListener('submit', async event => {
     phoneError.textContent = '';
     phoneField.classList.remove('is-invalid');
     phoneInput.setCustomValidity('');
-    statusBox.textContent = '¡Solicitud recibida! Te contactaremos para revisar tu caso.';
+    // Mostrar agradecimiento únicamente tras la confirmación real de Formspree.
+    statusBox.textContent = '';
+    formView.hidden = true;
+    successView.hidden = false;
+    successView.focus({preventScroll:true});
+    successView.scrollIntoView({behavior:'smooth', block:'center'});
   } catch(error) {
     statusBox.textContent = 'No se pudo enviar. Inténtalo otra vez o escríbenos directamente por WhatsApp.';
   } finally { button.disabled = false; }

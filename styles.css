@@ -77,3 +77,28 @@ textarea{min-height:56px}
 .phone-field .phone-error:not(:empty){display:block}
 .phone-field.is-invalid .phone-control{border-color:#c4433d;box-shadow:0 0 0 2px #f8e0de}
 @media(max-width:590px){.phone-control{min-height:46px}.phone-prefix{flex-basis:76px;font-size:14px}.phone-control input#telefono-local{font-size:16px}}
+
+
+/* V11 · Confirmación premium: sustituye por completo al formulario tras envío verificado */
+#form-view[hidden],#success-view[hidden]{display:none!important}
+.form-card:has(.success-view:not([hidden])){align-self:center}
+.success-view{text-align:center;padding:16px 2px 12px;display:flex;flex-direction:column;align-items:center;gap:0;outline:none;animation:success-in .35s ease-out both}
+.success-icon{width:84px;height:84px;margin:3px 0 18px;filter:drop-shadow(0 7px 15px #11a77c24)}
+.success-icon svg{display:block;width:100%;height:100%}
+.success-kicker{display:inline-flex;align-items:center;justify-content:center;color:#008c92;background:#e9f7fa;border-radius:30px;padding:8px 13px;letter-spacing:1.2px;font-weight:800;font-size:10px}
+.success-view h2{font-size:clamp(26px,2.55vw,38px);line-height:1.14;letter-spacing:-.8px;margin:16px 0 12px;max-width:420px;color:#0b3067}
+.success-lead{max-width:380px;color:#415977;font-size:15px;line-height:1.55;margin:0 0 24px}
+.success-lead strong{color:#0b3067}
+.success-time{text-align:left;display:flex;gap:12px;align-items:center;background:linear-gradient(110deg,#eaf7ff 0%,#e9faf5 100%);padding:17px;border:1px solid #ccebe9;border-radius:16px;width:100%;margin:0 0 23px}
+.success-time-icon{flex:0 0 46px;width:46px;height:46px;display:grid;place-items:center;background:white;border-radius:50%;font-size:33px;color:#078ba5;line-height:1}
+.success-time div{display:flex;flex-direction:column;gap:4px}
+.success-time strong{font-size:16px;color:#0a3269;line-height:1.25}
+.success-time span:not(.success-time-icon){font-size:13px;color:#536d83;line-height:1.4}
+.success-phrase{margin:2px 0 14px;font-size:clamp(17px,1.55vw,21px);font-weight:800;color:#0694a7;line-height:1.33;max-width:370px}
+.success-divider{height:1px;width:88%;background:#e2eaf4;margin:6px 0 17px}
+.success-small{font-size:12px;color:#6c7f93;line-height:1.55;margin:0 0 23px;max-width:380px}
+.success-home{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #b7d2e7;border-radius:100px;padding:11px 19px;font-size:13px;font-weight:750;color:#1163a0;text-decoration:none;background:#fff}
+.success-home:hover,.success-home:focus-visible{background:#eef8ff;border-color:#0794aa}
+@keyframes success-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:590px){.success-view{padding:13px 1px 6px}.success-view h2{font-size:29px}.success-time{padding:14px}.success-lead{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.success-view{animation:none}html{scroll-behavior:auto}}

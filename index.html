@@ -28,6 +28,7 @@
     <div class="hero-scene" aria-hidden="true"><img src="assets/hero-escena-aprobada.jpg" alt=""></div>
     <div class="photo-mobile"><img src="assets/hero-escena-aprobada.jpg" alt="Mujer sonriente sentada en un living luminoso, con un teléfono; imagen ilustrativa"></div>
     <aside class="form-card" id="evaluacion">
+      <div id="form-view">
       <span class="kicker">TU PRIMER PASO</span><h2>Solicita tu evaluación</h2>
       <p>Completa tus datos y te contactaremos para revisar tu caso.</p>
       <form id="lead-form" method="POST" action="https://formspree.io/f/xzezlnvd" novalidate>
@@ -51,6 +52,20 @@
         <button class="button button-main submit" type="submit">Solicitar evaluación <span>→</span></button>
         <p class="privacy-summary">🔒 No compartas claves, RUT ni datos bancarios sensibles.</p>
       </form>
+      </div>
+      <section id="success-view" class="success-view" hidden aria-labelledby="success-heading" tabindex="-1">
+        <div class="success-icon" aria-hidden="true">
+          <svg viewBox="0 0 72 72" fill="none" role="img"><circle cx="36" cy="36" r="34" fill="#E6F9F3"/><circle cx="36" cy="36" r="25" fill="#12A77C"/><path d="m23 36 9 9 18-20" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="kicker success-kicker">SOLICITUD ENVIADA CON ÉXITO</span>
+        <h2 id="success-heading">¡Tu solicitud está en las mejores manos!</h2>
+        <p class="success-lead">Gracias por confiar en <strong>Dinero a Favor.</strong> Recibimos tu información correctamente.</p>
+        <div class="success-time"><span class="success-time-icon" aria-hidden="true">◷</span><div><strong>En menos de 24 horas hábiles</strong><span>Nos pondremos en contacto contigo para dar el siguiente paso.</span></div></div>
+        <p class="success-phrase">Recuperar tu dinero es nuestra mejor motivación.</p>
+        <div class="success-divider"></div>
+        <p class="success-small">Mientras tanto, no necesitas realizar ninguna gestión adicional. Te acompañaremos durante el proceso de evaluación.</p>
+        <a class="success-home" href="#inicio">Volver al inicio <span aria-hidden="true">↑</span></a>
+      </section>
     </aside>
   </div>
 </section>

@@ -16,3 +16,7 @@
 
 ## V10 — campo WhatsApp simplificado
 El campo muestra +56 9 como prefijo fijo y solicita únicamente los 8 dígitos restantes. Valida números incompletos o demasiado largos y envía el número normalizado como +569XXXXXXXX a Formspree. También admite pegar un número chileno completo. El diseño de la portada permanece sin cambios.
+
+
+## V11 · Confirmación premium de envío
+Después de que Formspree responda correctamente, el formulario se sustituye por una pantalla de agradecimiento adaptada a móvil. Ante un fallo de envío, se conserva el formulario con los datos escritos y aparece un mensaje para reintentar. El plazo de 24 horas hábiles en la confirmación debe cumplirse operativamente por el equipo de atención.
