@@ -30,20 +30,25 @@
     <aside class="form-card" id="evaluacion">
       <span class="kicker">TU PRIMER PASO</span><h2>Solicita tu evaluación</h2>
       <p>Completa tus datos y te contactaremos para revisar tu caso.</p>
-      <form id="lead-form" novalidate>
+      <form id="lead-form" method="POST" action="https://formspree.io/f/xzezlnvd" novalidate>
         <div class="form-grid">
           <label>Nombre <b>*</b><input name="nombre" autocomplete="given-name" required maxlength="70" placeholder="Tu nombre"></label>
           <label>Apellido <b>*</b><input name="apellido" autocomplete="family-name" required maxlength="70" placeholder="Tu apellido"></label>
-          <label>WhatsApp <b>*</b><input name="telefono" inputmode="tel" type="tel" autocomplete="tel" required pattern="\+?56\s?9\s?\d{4}\s?\d{4}" placeholder="+56 9 1234 5678"></label>
+          <div class="phone-field">
+            <label for="telefono-local">WhatsApp <b>*</b></label>
+            <div class="phone-control"><span class="phone-prefix" aria-label="Código de Chile más cincuenta y seis, móvil nueve">+56 9</span><input id="telefono-local" inputmode="numeric" type="tel" autocomplete="tel-national" required placeholder="1234 5678" aria-describedby="telefono-ayuda telefono-error" maxlength="15"></div>
+            <input type="hidden" name="telefono" id="telefono-completo" value="">
+            <small class="phone-help" id="telefono-ayuda">Escribe solo los 8 dígitos de tu celular.</small>
+            <small class="phone-error" id="telefono-error" role="alert" aria-live="polite"></small>
+          </div>
           <label>Correo electrónico <b>*</b><input name="email" type="email" autocomplete="email" required placeholder="tu@email.cl"></label>
           <label>Tipo de crédito <b>*</b><select name="tipo_credito" required><option value="">Selecciona una opción</option><option value="Consumo">Crédito de consumo</option><option value="Automotriz">Crédito automotriz</option></select></label>
           <label>Institución financiera <span class="optional">(opcional)</span><input name="institucion" maxlength="100" placeholder="Banco o financiera"></label>
         </div>
         <label class="message-label">Mensaje adicional <span class="optional">(opcional)</span><textarea name="mensaje" rows="2" maxlength="600" placeholder="Cuéntanos brevemente tu caso. No incluyas claves, RUT, números de cuenta ni documentos."></textarea></label>
-        <label class="consent"><input type="checkbox" name="consentimiento" required><span>Autorizo a que se comuniquen conmigo para evaluar mi solicitud y acepto el tratamiento de mis datos conforme a la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>. <b>*</b></span></label>
+        <label class="consent"><input type="checkbox" name="consentimiento" required><span>Autorizo a Insurex Corredores de Seguros SpA a tratar mis datos para responder mi consulta y contactarme sobre la evaluación de mi seguro, conforme a la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>. <b>*</b></span></label>
         <p role="status" aria-live="polite" id="form-status"></p>
         <button class="button button-main submit" type="submit">Solicitar evaluación <span>→</span></button>
-        <p class="demo-note" id="demo-note">Próximamente: estamos terminando la habilitación segura del formulario. Por ahora, contáctanos por WhatsApp.</p>
         <p class="privacy-summary">🔒 No compartas claves, RUT ni datos bancarios sensibles.</p>
       </form>
     </aside>

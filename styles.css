@@ -64,3 +64,16 @@ textarea{min-height:56px}
   .form-grid{grid-template-columns:1fr;gap:10px}
   textarea{min-height:72px}
 }
+
+/* V10 · WhatsApp chileno: prefijo fijo y validación accesible */
+.phone-field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.phone-field>label{display:block;font-size:12px;font-weight:760}
+.phone-control{display:flex;align-items:stretch;width:100%;min-width:0;border:1px solid #c8d9e8;border-radius:8px;background:#fff;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+.phone-control:focus-within{border-color:#008ca9;box-shadow:0 0 0 3px #aeeaf540}
+.phone-prefix{display:flex;align-items:center;justify-content:center;flex:0 0 67px;padding:0 8px;background:#eaf4ff;border-right:1px solid #c8d9e8;color:#164b85;font-size:13px;font-weight:800;white-space:nowrap}
+.phone-control input#telefono-local{min-width:0;width:100%;border:0;border-radius:0;box-shadow:none!important;outline:none;padding:9px 10px;font-size:13px;background:#fff}
+.phone-field .phone-help{color:#657c93;font-size:10px;line-height:1.25;margin:1px 0 0}
+.phone-field .phone-error{display:none;color:#a32925;font-size:11px;font-weight:650;line-height:1.25}
+.phone-field .phone-error:not(:empty){display:block}
+.phone-field.is-invalid .phone-control{border-color:#c4433d;box-shadow:0 0 0 2px #f8e0de}
+@media(max-width:590px){.phone-control{min-height:46px}.phone-prefix{flex-basis:76px;font-size:14px}.phone-control input#telefono-local{font-size:16px}}
