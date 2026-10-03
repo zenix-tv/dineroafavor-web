@@ -1,0 +1,12 @@
+DINERO A FAVOR — CRM V12
+========================
+1. Conservamos index.html, styles.css, script.js y las imágenes originales.
+2. El panel nuevo está en panel/ y funcionará en www.dineroafavor.cl/panel/ cuando termines la configuración.
+3. Abre panel/config.js y sustituye SOLO las dos cadenas PEGAR_API_KEY_DE_FIREBASE y PEGAR_APP_ID_DE_FIREBASE por la configuración WEB de Firebase Console.
+   https://console.firebase.google.com/project/dinero-a-favor-crm/settings/general
+4. Sube el contenido de la carpeta del ZIP a la RAÍZ del repositorio dineroafavor-web de GitHub (NO subas el ZIP mismo, ni una carpeta adicional que contenga todo).
+5. Entra con el usuario de Carolina que ya se creó en Firebase Authentication.
+6. Formspree seguirá enviando correos como antes. Para importar los leads existentes, exporta un CSV desde Formspree y usa la sección Importar solicitudes del CRM.
+
+PENDIENTE: la llegada AUTOMÁTICA de leads a Firebase exige un conector de servidor. Los webhooks nativos de Formspree requieren un plan compatible; no está conectado en este ZIP.
+No autorices escrituras públicas a Firestore. No compartas contraseñas.

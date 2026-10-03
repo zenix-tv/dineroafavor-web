@@ -20,3 +20,11 @@ El campo muestra +56 9 como prefijo fijo y solicita únicamente los 8 dígitos r
 
 ## V11 · Confirmación premium de envío
 Después de que Formspree responda correctamente, el formulario se sustituye por una pantalla de agradecimiento adaptada a móvil. Ante un fallo de envío, se conserva el formulario con los datos escritos y aparece un mensaje para reintentar. El plazo de 24 horas hábiles en la confirmación debe cumplirse operativamente por el equipo de atención.
+
+
+## V12 · Panel comercial en /panel
+- Panel privado responsive para Carolina, conectado a Authentication y Firestore.
+- `panel/config.js` requiere completar apiKey y appId de la aplicación web de Firebase.
+- Mantiene la web y el correo de Formspree sin cambios.
+- Permite importar CSV de Formspree mientras no exista webhook disponible.
+- Consulta `panel/README.md` para las instrucciones de activación.
