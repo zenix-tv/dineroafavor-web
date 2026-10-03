@@ -1,25 +1,88 @@
-<!doctype html>
-<html lang="es-CL"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#091d45">
-<title>Panel comercial | Dinero a Favor</title><link rel="stylesheet" href="panel.css">
-</head><body>
-<div id="startup" class="startup" role="status">Cargando panel…</div>
-<section id="setup" class="auth-screen" hidden><div class="auth-card"><div class="logo-symbol">↗</div><p class="eyebrow">CONFIGURACIÓN INICIAL</p><h1>Activar el CRM</h1><p>Comprueba que los datos públicos de Supabase estén completos en <code>panel/config.js</code> y vuelve a publicar la carpeta panel en GitHub.</p><p class="muted">Nunca publiques contraseñas de Supabase ni claves privadas sb_secret.</p><a class="btn primary" href="https://supabase.com/dashboard/project/vyfrywxmegltmrqnivon/settings/api-keys" target="_blank" rel="noopener">Abrir configuración de Supabase ↗</a></div></section>
-<section id="auth" class="auth-screen" hidden><div class="auth-card"><a href="../" class="brand"><span class="logo-symbol">↗</span><span>Dinero <em>a Favor</em><small>CRM PRIVADO</small></span></a><div class="lock-icon">▣</div><p class="eyebrow">ÁREA PRIVADA</p><h1>Bienvenida, Carolina</h1><p>Accede a tus solicitudes, clientes y seguimientos en un solo lugar.</p><form id="login-form"><label>Usuario<input id="login-email" type="text" required autocomplete="username" value="carolina" placeholder="carolina" autocapitalize="none" spellcheck="false"></label><label>Contraseña<input id="login-password" type="password" required autocomplete="current-password" placeholder="Contraseña del CRM"></label><p id="login-error" class="error" role="alert" aria-live="polite"></p><button class="btn primary full" id="login-btn">Entrar al panel →</button></form><p class="muted foot-note">Acceso exclusivo para personal autorizado · Insurex Corredores de Seguros SpA</p></div></section>
-<div id="app" class="app-shell" hidden>
-<aside class="sidebar" id="sidebar"><a href="../" class="brand side-brand"><span class="logo-symbol">↗</span><span>Dinero <em>a Favor</em><small>GESTIÓN COMERCIAL</small></span></a><div class="side-nav"><button class="nav-btn active" data-view="inicio"><span>▦</span> Resumen</button><button class="nav-btn" data-view="leads"><span>♧</span> Solicitudes <span id="side-count" class="count-chip">0</span></button><button class="nav-btn" data-view="seguimiento"><span>◷</span> Seguimientos</button><button class="nav-btn" data-view="importar"><span>⇩</span> Importar solicitudes</button></div><div class="side-footer"><span class="avatar">C</span><div><strong>Carolina</strong><small>Administradora</small></div><button id="logout" title="Cerrar sesión" aria-label="Cerrar sesión">↪</button></div></aside>
-<div class="main-area"><header class="topbar"><button id="menu-toggle" class="icon-btn mobile-menu" aria-label="Abrir menú">☰</button><span class="breadcrumb">Dinero a Favor <span class="sep">/</span> <span id="section-name">Resumen comercial</span></span><div class="top-right"><span class="online-indicator">●</span><span class="online-label">Conectado</span><a class="site-link" href="../" target="_blank" rel="noopener">Ver web ↗</a></div></header>
-<main class="content">
-<div id="alert" class="alert" hidden role="status" aria-live="polite"></div>
-<section class="view" id="view-inicio"><div class="page-head"><div><p class="eyebrow">PANEL COMERCIAL</p><h1>Tu negocio, en orden.</h1><p>Gestiona las evaluaciones y acompaña a cada cliente hasta el cierre.</p></div><button class="btn primary" id="new-lead-main">+ Nuevo contacto</button></div>
-<div class="metrics"><article class="metric"><div class="metric-icon blue">♧</div><span>Total de solicitudes</span><strong id="metric-total">0</strong><small>Registradas en el CRM</small></article><article class="metric"><div class="metric-icon cyan">✳</div><span>Contactos nuevos</span><strong id="metric-new">0</strong><small>Pendientes de contacto</small></article><article class="metric"><div class="metric-icon amber">◷</div><span>En gestión</span><strong id="metric-work">0</strong><small>En evaluación o tramitación</small></article><article class="metric"><div class="metric-icon green">✓</div><span>Finalizados</span><strong id="metric-done">0</strong><small>Gestiones completadas</small></article></div>
-<div class="dash-grid"><article class="panel-card"><div class="card-head"><div><h2>Últimas solicitudes</h2><p>Contactos recientes para revisar</p></div><button class="text-btn" data-goto="leads">Ver todas →</button></div><div id="recent-list" class="recent-list"><p class="empty">Todavía no hay solicitudes registradas.</p></div></article><article class="panel-card next-panel"><div class="card-head"><div><h2>Próximos seguimientos</h2><p>Clientes que necesitan tu atención</p></div><button class="text-btn" data-goto="seguimiento">Ver agenda →</button></div><div id="upcoming-list" class="recent-list"><p class="empty">Sin seguimientos programados.</p></div><div class="hint"><strong>Tip comercial</strong><p>Registra una próxima fecha en cada ficha para no perder oportunidades.</p></div></article></div>
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Con Dinero a Favor evalúa la portabilidad de tu seguro de desgravamen de créditos de consumo y automotrices. Con el respaldo de Mueve Seguro.">
+<meta name="theme-color" content="#ffffff"><title>Dinero a Favor | Evalúa tu seguro de desgravamen</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header" id="inicio">
+  <div class="header-inner">
+    <a class="brand" href="#inicio" aria-label="Dinero a Favor: inicio"><span class="brand-icon" aria-hidden="true">↗</span><span>Dinero <em>a Favor</em></span></a>
+    <nav aria-label="Navegación"><a href="#como-funciona">Cómo funciona</a><a href="#beneficios">Beneficios</a><a href="#contacto">Contacto</a></nav>
+    <div class="backing-top"><svg viewBox="0 0 32 36" aria-hidden="true"><path d="M16 2 29 7v10c0 9-6 14-13 17C9 31 3 26 3 17V7z" fill="none" stroke="#0786b5" stroke-width="3"/><path d="m9 18 5 5 10-12" fill="none" stroke="#08a1a3" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Con el respaldo de<br><strong>Mueve Seguro</strong></span></div>
+  </div>
+</header>
+<main>
+<section class="hero" aria-label="Solicita una evaluación">
+  <div class="hero-photo" aria-hidden="true"><img src="assets/hero-escena-aprobada.jpg" alt=""></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <span class="eyebrow">PORTABILIDAD DE SEGUROS DE DESGRAVAMEN · CHILE</span>
+      <h1>¿Tienes un crédito de<br class="desktop-break"> consumo o automotriz? <span>Podrías recuperar<br class="desktop-break"> dinero de tu seguro.</span></h1>
+      <p class="lead">Evaluamos tu seguro de desgravamen y, si existe una alternativa más conveniente, te ayudamos con la portabilidad y la posible devolución de la prima no consumida.</p>
+      <div class="benefit-chips"><span>✓ Atención personalizada</span><span>✓ Proceso online</span><span>✓ Sin cambiar de banco</span></div>
+      <div class="hero-buttons"><a href="#evaluacion" class="button button-main">Quiero mi evaluación <span>→</span></a><a class="button button-white" href="https://wa.me/56948040106?text=Hola%2C%20quiero%20evaluar%20mi%20seguro%20de%20desgravamen" target="_blank" rel="noopener">✆ &nbsp; Escríbenos por WhatsApp</a></div>
+    </div>
+    <div class="hero-scene" aria-hidden="true"><img src="assets/hero-escena-aprobada.jpg" alt=""></div>
+    <div class="photo-mobile"><img src="assets/hero-escena-aprobada.jpg" alt="Mujer sonriente sentada en un living luminoso, con un teléfono; imagen ilustrativa"></div>
+    <aside class="form-card" id="evaluacion">
+      <div id="form-view">
+      <span class="kicker">TU PRIMER PASO</span><h2>Solicita tu evaluación</h2>
+      <p>Completa tus datos y te contactaremos para revisar tu caso.</p>
+      <form id="lead-form" method="POST" action="https://formspree.io/f/xzezlnvd" novalidate>
+        <div class="form-grid">
+          <label>Nombre <b>*</b><input name="nombre" autocomplete="given-name" required maxlength="70" placeholder="Tu nombre"></label>
+          <label>Apellido <b>*</b><input name="apellido" autocomplete="family-name" required maxlength="70" placeholder="Tu apellido"></label>
+          <div class="phone-field">
+            <label for="telefono-local">WhatsApp <b>*</b></label>
+            <div class="phone-control"><span class="phone-prefix" aria-label="Código de Chile más cincuenta y seis, móvil nueve">+56 9</span><input id="telefono-local" inputmode="numeric" type="tel" autocomplete="tel-national" required placeholder="1234 5678" aria-describedby="telefono-ayuda telefono-error" maxlength="15"></div>
+            <input type="hidden" name="telefono" id="telefono-completo" value="">
+            <small class="phone-help" id="telefono-ayuda">Escribe solo los 8 dígitos de tu celular.</small>
+            <small class="phone-error" id="telefono-error" role="alert" aria-live="polite"></small>
+          </div>
+          <label>Correo electrónico <b>*</b><input name="email" type="email" autocomplete="email" required placeholder="tu@email.cl"></label>
+          <label>Tipo de crédito <b>*</b><select name="tipo_credito" required><option value="">Selecciona una opción</option><option value="Consumo">Crédito de consumo</option><option value="Automotriz">Crédito automotriz</option></select></label>
+          <label>Institución financiera <span class="optional">(opcional)</span><input name="institucion" maxlength="100" placeholder="Banco o financiera"></label>
+        </div>
+        <label class="message-label">Mensaje adicional <span class="optional">(opcional)</span><textarea name="mensaje" rows="2" maxlength="600" placeholder="Cuéntanos brevemente tu caso. No incluyas claves, RUT, números de cuenta ni documentos."></textarea></label>
+        <label class="consent"><input type="checkbox" name="consentimiento" required><span>Autorizo a Insurex Corredores de Seguros SpA a tratar mis datos para responder mi consulta y contactarme sobre la evaluación de mi seguro, conforme a la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>. <b>*</b></span></label>
+        <div class="daf-turnstile" id="turnstile-widget" aria-label="Verificación de seguridad"></div>
+        <p class="daf-turnstile-note">Verificación de seguridad para proteger tus datos.</p>
+        <p role="status" aria-live="polite" id="form-status"></p>
+        <button class="button button-main submit" type="submit">Solicitar evaluación <span>→</span></button>
+        <p class="privacy-summary">🔒 No compartas claves, RUT ni datos bancarios sensibles.</p>
+      </form>
+      </div>
+      <section id="success-view" class="success-view" hidden aria-labelledby="success-heading" tabindex="-1">
+        <div class="success-icon" aria-hidden="true">
+          <svg viewBox="0 0 72 72" fill="none" role="img"><circle cx="36" cy="36" r="34" fill="#E6F9F3"/><circle cx="36" cy="36" r="25" fill="#12A77C"/><path d="m23 36 9 9 18-20" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span class="kicker success-kicker">SOLICITUD ENVIADA CON ÉXITO</span>
+        <h2 id="success-heading">¡Tu solicitud está en las mejores manos!</h2>
+        <p class="success-lead">Gracias por confiar en <strong>Dinero a Favor.</strong> Recibimos tu información correctamente.</p>
+        <div class="success-time"><span class="success-time-icon" aria-hidden="true">◷</span><div><strong>En menos de 24 horas hábiles</strong><span>Nos pondremos en contacto contigo para dar el siguiente paso.</span></div></div>
+        <p class="success-phrase">Recuperar tu dinero es nuestra mejor motivación.</p>
+        <div class="success-divider"></div>
+        <p class="success-small">Mientras tanto, no necesitas realizar ninguna gestión adicional. Te acompañaremos durante el proceso de evaluación.</p>
+        <a class="success-home" href="#inicio">Volver al inicio <span aria-hidden="true">↑</span></a>
+      </section>
+    </aside>
+  </div>
 </section>
-<section class="view" id="view-leads" hidden><div class="page-head"><div><p class="eyebrow">GESTIÓN COMERCIAL</p><h1>Solicitudes</h1><p>Organiza los contactos recibidos y acompaña cada evaluación.</p></div><div class="actions"><button class="btn outline" id="export-csv">↓ Exportar CSV</button><button class="btn primary" id="new-lead">+ Nuevo contacto</button></div></div>
-<div class="panel-card table-card"><div class="filters"><label class="search-box"><span>⌕</span><input id="search" type="search" placeholder="Buscar por nombre, teléfono o institución…" aria-label="Buscar contactos"></label><select id="status-filter" aria-label="Filtrar por estado"><option value="">Todos los estados</option><option value="nuevo">Nuevo</option><option value="contactado">Contactado</option><option value="evaluacion">En evaluación</option><option value="gestion">En gestión</option><option value="finalizado">Finalizado</option><option value="descartado">Descartado</option></select><select id="credit-filter" aria-label="Filtrar por tipo de crédito"><option value="">Todos los créditos</option><option value="Consumo">Consumo</option><option value="Automotriz">Automotriz</option></select></div><div class="table-wrap"><table><thead><tr><th>Cliente</th><th>Crédito</th><th>Institución</th><th>Estado</th><th>Fecha</th><th>Acción</th></tr></thead><tbody id="lead-rows"><tr><td colspan="6" class="empty">Sin solicitudes todavía.</td></tr></tbody></table></div><p id="results-count" class="results-count"></p></div></section>
-<section class="view" id="view-seguimiento" hidden><div class="page-head"><div><p class="eyebrow">PRÓXIMAS GESTIONES</p><h1>Seguimientos</h1><p>Organiza tus próximos contactos y tareas pendientes.</p></div></div><div class="panel-card"><div id="follow-list" class="follow-list"><p class="empty">Aún no hay seguimientos programados.</p></div></div></section>
-<section class="view" id="view-importar" hidden><div class="page-head"><div><p class="eyebrow">SIN PERDER LOS CORREOS</p><h1>Importar solicitudes</h1><p>Incorpora solicitudes antiguas que tengas guardadas en un archivo CSV.</p></div></div><div class="import-grid"><div class="panel-card"><h2>Importar archivo CSV</h2><p>Selecciona un CSV disponible si ya tienes uno. Formspree puede exigir un plan de pago para exportarlo.</p><label class="drop-area" for="csv-file"><span>⇧</span><strong>Seleccionar archivo CSV</strong><small>Solo se importarán datos tras tu confirmación</small><input id="csv-file" type="file" accept=".csv,text/csv"></label><div id="import-preview" hidden><div id="preview-stats" class="preview-stats"></div><div class="table-wrap"><table><thead><tr><th>Nombre</th><th>WhatsApp</th><th>Crédito</th></tr></thead><tbody id="preview-rows"></tbody></table></div><button class="btn primary" id="import-confirm">Importar a Supabase</button></div><p id="import-status" class="muted" role="status"></p></div><div class="panel-card guide"><h2>¿Cómo llegan los contactos?</h2><div class="guide-item"><b>1</b><span>El cliente completa el formulario de <strong>dineroafavor.cl</strong>.</span></div><div class="guide-item"><b>2</b><span>Formspree sigue enviando el correo habitual a Carolina.</span></div><div class="guide-item"><b>3</b><span>Las solicitudes nuevas llegarán mediante Cloudflare al activar la integración. Para archivos CSV existentes, utiliza la importación opcional.</span></div><div class="notice"><strong>Conexión automática pendiente</strong><p>La recepción automática en Supabase requiere publicar la nueva versión del Worker de Cloudflare. El envío de correos por Formspree se mantiene independiente.</p></div><a class="btn outline full" href="https://formspree.io/forms/xzezlnvd/submissions" target="_blank" rel="noopener">Abrir Formspree ↗</a></div></div></section>
-</main></div></div>
-<dialog id="lead-modal" class="modal"><form id="lead-editor"><div class="modal-head"><div><p class="eyebrow">FICHA COMERCIAL</p><h2 id="modal-title">Nuevo contacto</h2></div><button class="icon-btn" type="button" id="close-modal" aria-label="Cerrar">×</button></div><div class="modal-body"><input type="hidden" id="edit-id"><div class="edit-grid"><label>Nombre *<input id="edit-name" required maxlength="70" placeholder="Nombre"></label><label>Apellido<input id="edit-last" maxlength="70" placeholder="Apellido"></label><label>WhatsApp<input id="edit-phone" type="tel" inputmode="tel" placeholder="+56912345678"></label><label>Correo<input id="edit-email" type="email" placeholder="correo@ejemplo.cl"></label><label>Tipo de crédito<select id="edit-credit"><option value="">Selecciona</option><option>Consumo</option><option>Automotriz</option></select></label><label>Institución financiera<input id="edit-bank" maxlength="100"></label><label>Estado<select id="edit-status"><option value="nuevo">Nuevo</option><option value="contactado">Contactado</option><option value="evaluacion">En evaluación</option><option value="gestion">En gestión</option><option value="finalizado">Finalizado</option><option value="descartado">Descartado</option></select></label><label>Próximo contacto<input id="edit-next" type="datetime-local"></label><label>Monto estimado (CLP)<input id="edit-amount" type="number" min="0" max="999999999" step="1" placeholder="Opcional"></label><label>Origen<select id="edit-origin"><option value="web">Web</option><option value="formspree">Formspree</option><option value="whatsapp">WhatsApp</option><option value="manual">Manual</option></select></label></div><label>Mensaje original<textarea id="edit-message" rows="2" maxlength="1000" placeholder="Consulta del cliente"></textarea></label><label>Notas de seguimiento<textarea id="edit-notes" rows="3" maxlength="3000" placeholder="Próxima gestión, documentos pendientes…"></textarea></label><div id="contact-tools" class="contact-tools" hidden><a id="contact-wa" href="#" target="_blank" rel="noopener" class="btn whatsapp">◉ Abrir WhatsApp</a><a id="contact-mail" href="#" class="btn outline">✉ Enviar correo</a></div><div id="history" class="history" hidden><h3>Actividad reciente</h3><div id="history-list"></div></div><p class="muted note">No almacenes contraseñas, RUT, números de cuenta ni documentos médicos en estas notas.</p><p id="save-error" class="error" role="alert"></p></div><div class="modal-actions"><button class="btn outline" type="button" id="cancel-edit">Cancelar</button><button class="btn primary" type="submit" id="save-lead">Guardar cambios</button></div></form></dialog>
-<script type="module" src="app.js"></script>
+<section class="steps" id="como-funciona" aria-label="Cómo funciona">
+  <div class="step"><span class="step-symbol">▤</span><div><h3>1. Nos contactas</h3><p>Completa el formulario o escríbenos por WhatsApp.</p></div></div>
+  <div class="step"><span class="step-symbol">⌕</span><div><h3>2. Revisamos tu caso</h3><p>Evaluamos tu seguro y te informamos si podrías recuperar dinero.</p></div></div>
+  <div class="step"><span class="step-symbol">♧</span><div><h3>3. Te acompañamos</h3><p>Te orientamos durante la portabilidad y la posible devolución.</p></div></div>
+</section>
+<section class="below" id="beneficios">
+  <div class="below-intro"><span class="kicker">TU TRANQUILIDAD IMPORTA</span><h2>Nosotros nos encargamos de acompañarte.</h2><p>Con el respaldo de Mueve Seguro, revisamos el seguro asociado a tu crédito y te ayudamos a evaluar opciones con coberturas equivalentes, sin cambiar de banco.</p></div>
+  <div class="benefits"><article><span>✓</span><h3>Evaluación personalizada</h3><p>Estudiamos las condiciones particulares de tu crédito y seguro.</p></article><article><span>↗</span><h3>Proceso online</h3><p>Te orientamos a distancia, sin trámites presenciales innecesarios.</p></article><article><span>♡</span><h3>Posible devolución</h3><p>Si corresponde, gestionamos la prima no consumida de la póliza anterior.</p></article></div>
+</section>
+<section class="contact-section" id="contacto"><div><span class="kicker">¿TIENES DUDAS?</span><h2>Escríbenos. Te orientamos.</h2><p>Una consulta sencilla puede ser el primer paso para descubrir si tu seguro tiene una alternativa más conveniente.</p></div><a class="button contact-button" href="https://wa.me/56948040106?text=Hola%2C%20quiero%20solicitar%20una%20evaluaci%C3%B3n" target="_blank" rel="noopener">✆ &nbsp; WhatsApp: +56 9 4804 0106 →</a></section>
+</main>
+<footer><div><strong>Dinero a Favor</strong><span>Con el respaldo de Mueve Seguro · Chile</span></div><div><a href="privacidad.html">Política de privacidad</a><span>© <span id="year"></span> Dinero a Favor</span></div></footer>
+<script src="script.js?v=14"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoaded" async defer></script>
 </body></html>
