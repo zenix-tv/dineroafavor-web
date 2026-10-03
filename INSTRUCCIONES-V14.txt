@@ -1,0 +1,21 @@
+DINERO A FAVOR V14 — CONEXIÓN AUTOMÁTICA FORMULARIO → CRM Y FORMSPREE
+
+IMPORTANTE: la configuración panel/config.js del ZIP V12 tiene marcadores.
+NO REEMPLACES TU ARCHIVO panel/config.js QUE YA ESTÁ FUNCIONANDO EN GITHUB.
+
+CAMBIOS A SUBIR A GITHUB (en la raíz del repositorio):
+- index.html
+- script.js
+- styles.css
+- privacidad.html
+No cambies /panel, assets ni CNAME.
+
+La Site Key pública 0x4AAAAAAFNB6-0tgMYLYTER ya está insertada.
+La Secret Key debe estar configurada en Cloudflare como TURNSTILE_SECRET.
+El Worker publicado debe ser el mismo del archivo worker.js previo y responder en /health.
+
+PRUEBA: publica los cuatro archivos en GitHub; espera el despliegue de GitHub Pages y haz Ctrl+F5. Comprueba que Turnstile aparece en el formulario. Envía una SOLICITUD FICTICIA PROPIA y verifica tanto correo de Formspree como /panel.
+
+Si uno de los servicios falla, el formulario lo indica y permite reintentar el canal pendiente. Si se modifican datos tras una entrega parcial se iniciará una nueva solicitud; en ese caso podrían quedar registros duplicados.
+
+No subir jamás claves JSON ni TURNSTILE_SECRET a GitHub.

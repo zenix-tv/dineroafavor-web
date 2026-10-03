@@ -102,3 +102,10 @@ textarea{min-height:56px}
 @keyframes success-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:590px){.success-view{padding:13px 1px 6px}.success-view h2{font-size:29px}.success-time{padding:14px}.success-lead{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.success-view{animation:none}html{scroll-behavior:auto}}
+
+/* V14 - Turnstile y mensajes de entrega */
+.daf-turnstile{margin:14px 0 4px;min-height:65px;max-width:100%;overflow:hidden}
+.daf-turnstile-note{font-size:12px;line-height:1.4;color:#526a80;margin:3px 0 12px}
+#form-status{white-space:pre-line;line-height:1.55}
+#form-status[data-state="warning"]{color:#98520b;font-weight:600}
+#form-status[data-state="error"]{color:#a92424;font-weight:600}

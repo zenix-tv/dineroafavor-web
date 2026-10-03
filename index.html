@@ -48,6 +48,8 @@
         </div>
         <label class="message-label">Mensaje adicional <span class="optional">(opcional)</span><textarea name="mensaje" rows="2" maxlength="600" placeholder="Cuéntanos brevemente tu caso. No incluyas claves, RUT, números de cuenta ni documentos."></textarea></label>
         <label class="consent"><input type="checkbox" name="consentimiento" required><span>Autorizo a Insurex Corredores de Seguros SpA a tratar mis datos para responder mi consulta y contactarme sobre la evaluación de mi seguro, conforme a la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>. <b>*</b></span></label>
+        <div class="daf-turnstile" id="turnstile-widget" aria-label="Verificación de seguridad"></div>
+        <p class="daf-turnstile-note">Verificación de seguridad para proteger tus datos.</p>
         <p role="status" aria-live="polite" id="form-status"></p>
         <button class="button button-main submit" type="submit">Solicitar evaluación <span>→</span></button>
         <p class="privacy-summary">🔒 No compartas claves, RUT ni datos bancarios sensibles.</p>
@@ -81,5 +83,6 @@
 <section class="contact-section" id="contacto"><div><span class="kicker">¿TIENES DUDAS?</span><h2>Escríbenos. Te orientamos.</h2><p>Una consulta sencilla puede ser el primer paso para descubrir si tu seguro tiene una alternativa más conveniente.</p></div><a class="button contact-button" href="https://wa.me/56948040106?text=Hola%2C%20quiero%20solicitar%20una%20evaluaci%C3%B3n" target="_blank" rel="noopener">✆ &nbsp; WhatsApp: +56 9 4804 0106 →</a></section>
 </main>
 <footer><div><strong>Dinero a Favor</strong><span>Con el respaldo de Mueve Seguro · Chile</span></div><div><a href="privacidad.html">Política de privacidad</a><span>© <span id="year"></span> Dinero a Favor</span></div></footer>
-<script src="script.js"></script>
+<script src="script.js?v=14"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoaded" async defer></script>
 </body></html>
