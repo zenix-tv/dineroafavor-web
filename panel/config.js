@@ -1,10 +1,6 @@
-// Configuración PÚBLICA de la app web Firebase. Nunca pegues una clave privada de servicio.
-// Firebase Console → ⚙ Configuración del proyecto → Tus apps → Dinero a Favor - CRM Web → Config.
-// Completar apiKey y appId con los valores de esa pantalla antes de publicar el panel.
-export const firebaseConfig = {
-  apiKey: "AIzaSyDLiQ7R1LJVpBi7iR3zSKoiiDqXmwWKl4s",
-  authDomain: "dinero-a-favor-crm.firebaseapp.com",
-  projectId: "dinero-a-favor-crm",
-  appId: "1:121292177886:web:315476462efd9d8ef89d4f"
-};
-export const allowedUserId = 'USn4GcR9SgX4nmYgfdENPAwxDUv2';
+// Configuración pública de Supabase. No colocar aquí claves sb_secret ni contraseñas.
+export const supabaseUrl = 'https://vyfrywxmegltmrqnivon.supabase.co';
+export const supabasePublishableKey = 'sb_publishable_ZbL5Ei0eOYzbWCf5-7cXiQ_Crm7XRUl';
+export const allowedUserId = '05e460cf-24e8-4a7f-a351-2ce39eead8c5';
+export const loginAlias = 'carolina';
+export const loginEmail = 'gestor.financiamiento@gmail.com';
