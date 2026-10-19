@@ -109,171 +109,182 @@ textarea{min-height:56px}
 #form-status{white-space:pre-line;line-height:1.55}
 #form-status[data-state="warning"]{color:#98520b;font-weight:600}
 #form-status[data-state="error"]{color:#a92424;font-weight:600}
-.hero-cover {
-  position: relative;
-  overflow: hidden;
-  min-height: 760px;
-  display: flex;
-  align-items: stretch;
-  background: #071a2f;
-}
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+/* V15 · Portada corporativa, fondo a todo el ancho.
+   Estas reglas ganan sobre los estilos antiguos V6 para evitar columnas fantasma. */
+.hero.hero-cover {
+  position:relative;
+  display:block;
+  isolation:isolate;
+  min-height:690px;
+  background:#08274a;
+  overflow:hidden;
 }
-
-.hero-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: saturate(1.02) contrast(1.02);
+.hero.hero-cover::after {display:none;content:none}
+.hero.hero-cover .hero-bg {
+  display:block !important;
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
 }
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(90deg, rgba(5,18,35,0.88) 0%, rgba(5,18,35,0.78) 34%, rgba(5,18,35,0.55) 58%, rgba(5,18,35,0.30) 100%),
-    linear-gradient(180deg, rgba(7,134,181,0.10) 0%, rgba(8,161,163,0.08) 100%);
+.hero.hero-cover .hero-bg img {
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  object-position:center 40%;
+  filter:saturate(.92) contrast(1.05);
 }
-
-.hero-cover-inner {
-  position: relative;
-  z-index: 2;
-  width: min(1240px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 72px 0;
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) 460px;
-  gap: 40px;
-  align-items: center;
+.hero.hero-cover .hero-overlay {
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(3,27,57,.95) 0%,rgba(4,39,78,.88) 31%,rgba(6,54,99,.66) 59%,rgba(5,35,70,.56) 100%);
 }
-
-.hero-content-cover {
-  max-width: 720px;
-  color: #fff;
+.hero.hero-cover .hero-inner.hero-cover-inner {
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(380px,475px);
+  align-items:center;
+  max-width:1500px;
+  width:100%;
+  min-height:690px;
+  margin:0 auto;
+  padding:50px clamp(24px,4vw,66px);
+  gap:clamp(28px,4vw,72px);
 }
-
-.hero-content-cover .eyebrow {
-  display: inline-block;
-  margin-bottom: 18px;
-  padding: 10px 16px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.18);
-  color: #8fe7f5;
-  font-size: 0.84rem;
-  font-weight: 800;
-  letter-spacing: 0.10em;
+.hero.hero-cover .hero-content.hero-content-cover {
+  display:block;
+  position:relative;
+  align-self:center;
+  min-width:0;
+  width:100%;
+  max-width:680px;
+  padding:0;
+  color:#fff;
 }
-
-.hero-content-cover h1 {
-  margin: 0 0 20px;
-  font-size: clamp(2.5rem, 5vw, 4.8rem);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
-  color: #ffffff;
+.hero.hero-cover .hero-content-cover .eyebrow {
+  display:inline-block;
+  padding:9px 14px;
+  margin-bottom:19px;
+  border:1px solid rgba(120,220,245,.35);
+  border-radius:100px;
+  background:rgba(30,140,200,.24);
+  color:#bcf2fb;
+  font-size:11px;
+  font-weight:800;
+  line-height:1.45;
+  letter-spacing:.11em;
 }
-
-.hero-content-cover h1 span {
-  color: #20d6d2;
+.hero.hero-cover .hero-content-cover h1 {
+  display:block;
+  max-width:680px;
+  margin:0 0 22px;
+  color:#fff;
+  font-size:clamp(34px,3.5vw,55px);
+  line-height:1.08;
+  letter-spacing:-.035em;
+  font-weight:850;
+  text-wrap:balance;
 }
-
-.hero-content-cover .lead {
-  max-width: 640px;
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.92);
-  margin-bottom: 24px;
+.hero.hero-cover .hero-content-cover h1 span {
+  display:block;
+  color:#37e4e1;
 }
-
-.hero-content-cover .benefit-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 0 0 28px;
+.hero.hero-cover .hero-content-cover .lead {
+  max-width:625px;
+  margin:0 0 23px;
+  color:#eff9ff;
+  font-size:clamp(15px,1.2vw,19px);
+  line-height:1.6;
 }
-
-.hero-content-cover .benefit-chips span {
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 0.95rem;
+.hero.hero-cover .hero-content-cover .benefit-chips {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  margin:0 0 25px;
 }
-
-.hero-content-cover .hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
+.hero.hero-cover .hero-content-cover .benefit-chips span {
+  display:inline-flex;
+  padding:9px 12px;
+  border-radius:100px;
+  border:1px solid rgba(235,250,255,.23);
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
 }
-
-.form-card-cover {
-  position: relative;
-  z-index: 2;
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.35);
-  box-shadow: 0 24px 60px rgba(0, 20, 40, 0.22);
-  border-radius: 28px;
-  padding: 28px;
+.hero.hero-cover .hero-content-cover .hero-buttons {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  max-width:none;
+  gap:12px;
 }
-
-.hero-photo,
-.hero-scene,
-.photo-mobile {
-  display: none !important;
+.hero.hero-cover .hero-content-cover .hero-buttons .button {
+  width:auto;
+  min-height:51px;
 }
-
-@media (max-width: 1080px) {
-  .hero-cover-inner {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 56px 0;
+.hero.hero-cover .hero-content-cover .button-white {
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.7);
+  color:white;
+  box-shadow:none;
+}
+.hero.hero-cover aside.form-card.form-card-cover {
+  display:block;
+  position:relative;
+  z-index:3;
+  justify-self:stretch;
+  align-self:center;
+  width:100%;
+  max-width:none;
+  min-width:0;
+  margin:0;
+  padding:27px;
+  background:rgba(255,255,255,.98);
+  color:#092e68;
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:24px;
+  box-shadow:0 25px 65px rgba(0,13,37,.35);
+}
+.hero.hero-cover aside.form-card #form-view > p {
+  font-size:14px;
+  line-height:1.5;
+  color:#526b86;
+  margin:0 0 19px;
+}
+.hero.hero-cover .form-card h2 {font-size:clamp(27px,2.1vw,33px)}
+.hero.hero-cover .form-grid {grid-template-columns:repeat(2,minmax(0,1fr));gap:11px 12px}
+.hero.hero-cover .hero-photo,
+.hero.hero-cover .hero-scene,
+.hero.hero-cover .photo-mobile {display:none!important}
+@media(max-width:1050px){
+  .hero.hero-cover .hero-inner.hero-cover-inner {
+    grid-template-columns:minmax(0,1fr);
+    min-height:0;
+    gap:30px;
+    padding:55px 5%;
   }
-
-  .hero-content-cover {
-    max-width: 100%;
-  }
-
-  .form-card-cover {
-    max-width: 720px;
-  }
+  .hero.hero-cover .hero-content.hero-content-cover {max-width:800px}
+  .hero.hero-cover aside.form-card.form-card-cover {max-width:700px;justify-self:center}
+  .hero.hero-cover .hero-overlay {background:linear-gradient(90deg,rgba(3,27,57,.93),rgba(3,31,65,.76))}
 }
-
-@media (max-width: 768px) {
-  .hero-cover {
-    min-height: auto;
-  }
-
-  .hero-cover-inner {
-    width: min(100% - 28px, 100%);
-    padding: 36px 0 44px;
-  }
-
-  .hero-content-cover h1 {
-    font-size: clamp(2.1rem, 9vw, 3.2rem);
-    line-height: 1.02;
-  }
-
-  .hero-content-cover .lead {
-    font-size: 1rem;
-    line-height: 1.55;
-  }
-
-  .hero-content-cover .hero-buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .form-card-cover {
-    padding: 22px;
-    border-radius: 22px;
-  }
+@media(max-width:590px){
+  .hero.hero-cover .hero-inner.hero-cover-inner {display:grid;grid-template-columns:minmax(0,1fr);padding:34px 5% 40px;gap:24px}
+  .hero.hero-cover .hero-bg img {object-position:55% center}
+  .hero.hero-cover .hero-overlay {background:rgba(4,28,59,.84)}
+  .hero.hero-cover .hero-content-cover h1 {font-size:clamp(31px,8vw,42px);line-height:1.09}
+  .hero.hero-cover .hero-content-cover .lead {font-size:15px}
+  .hero.hero-cover .hero-content-cover .benefit-chips span {font-size:11px;padding:8px 10px}
+  .hero.hero-cover .hero-content-cover .hero-buttons {flex-direction:column}
+  .hero.hero-cover .hero-content-cover .hero-buttons .button {width:100%}
+  .hero.hero-cover aside.form-card.form-card-cover {padding:21px 17px;border-radius:18px}
+  .hero.hero-cover .form-grid {grid-template-columns:1fr}
 }
